@@ -38,8 +38,11 @@ input, button {
 }
 button{
   background-color: rgba(115, 194,251 ,0.7);
+  width: 5rem;
+  height: 2.5rem;
   border-radius: 0.25em;
   color: white;
+  margin: 10px;
   border: 1px solid white;
 }
 button:hover{
