@@ -1,10 +1,10 @@
 <template>
   <div class="checklist">
-    <h3>Your checklist</h3>
+    <h3> Wishlist</h3>
     <div>
       <section>
          <div >
-           <input v-model="inputField" v-on:keyup.enter="addTodo" placeholder="Pack a toothbrush" />
+           <input v-model="inputField" v-on:keyup.enter="addTodo" placeholder="Restaurant" />
            <button @click="addTodo">Add</button>
         </div>
       </section>
@@ -32,7 +32,7 @@
        </section>
 
     </div>
-    <button type="button" name="button" class="save-button" @click="saveChecklist">Save</button>
+    <button type="button" name="button" class="save-button">Save</button>
   </div>
 </template>
 
@@ -41,12 +41,9 @@
 // import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import axios from 'axios'
+
 export default {
   name: 'ToDo',
-  props: {
-    items: []
-  },
   methods: {
     addTodo: function(todo) {
       todo = this.inputField;
@@ -61,17 +58,8 @@ export default {
    },
    toggle: function(todo) {
       todo.complete = !todo.complete;
-   },
-   saveChecklist: function(){
-     axios.post(`${process.env.VUE_APP_ROOT_API}/checklists`, {
-       todoList: this.todoList
-     })
-     .then(response => {
-       console.log(response.data.checklist)
-     })
-   .catch(error=> console.log(error));
-  }
-},
+   }
+ },
   data () {
     return {
       inputField: '',
@@ -88,6 +76,7 @@ export default {
 }
 
 h3{
+  text-align: center;
   text-shadow: 2px 2px #000;
 }
   input{
@@ -95,6 +84,7 @@ h3{
   }
 
     button{
+
       background-color: rgba(115, 194,251 ,0.7);
       width: 5rem;
       height: 2.5rem;
@@ -124,6 +114,8 @@ p{
 }
 
 .save-button{
+  justify-content: center;
+  margin-left: 30%;
   background-color: rgba(255,0,0 ,0.6)
 }
 

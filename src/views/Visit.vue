@@ -1,19 +1,23 @@
 <template lang="html">
   <div class="bucketlist">
-    <GoogleMap />
-    <ToDo/>
+    <div class="map">
+      <GooglePlaces />
+    </div>
+    <div class="list">
+      <Wishlist/>
+    </div>
   </div>
 
 </template>
 
 <script>
-import GoogleMap from '@/components/GoogleMap.vue'
-import ToDo from '@/components/ToDo.vue'
+import GooglePlaces from '@/components/GooglePlaces.vue'
+import Wishlist from '@/components/Wishlist.vue'
 export default {
   name:'Visit',
   components: {
-    ToDo,
-    GoogleMap
+    Wishlist,
+    GooglePlaces
   }
 }
 </script>
@@ -32,5 +36,20 @@ export default {
 -o-background-size: cover;
 background-size: cover;
 position: relative;
+}
+
+.bucketlist {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.map{
+  flex: 2;
+  margin: 12px;
+}
+
+.list{
+  text-align: left;
+  margin: 12px;
 }
 </style>

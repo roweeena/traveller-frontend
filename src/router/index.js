@@ -56,7 +56,7 @@ const routes = [
     component: Visit
   },
   {
-    path: '/trip',
+    path: '/trip/:id',
     name: 'Show',
     component: Show
   },

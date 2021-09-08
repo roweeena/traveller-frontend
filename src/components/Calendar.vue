@@ -32,16 +32,10 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Calendar',
-  props: {
-      default(){
-        return {
-          start: '',
-          end:''
-        }
-      }
-    },
+
   data (){
     return {
       range: {
@@ -56,15 +50,26 @@ export default {
 
   methods: {
     saveDates(){
-      this.start = new Date();
-      this.end = new Date();
-      this.$emit('saveDates', this.start, this.end)
+    axios.post(`${process.env.VUE_APP_ROOT_API}/trips`, {
+      start: this.range.start,
+       end: this.range.end})
+       .then(response => {
+         console.log(response.data.trip.id)
+         this.$router.push(`/trip/`+response.data.trip.id)
+       })
+      // this.$router.push('/trip')
+      .catch(error => console.log(error))
     }
   }
 }
 </script>
 
 <style scoped>
+
+  h3 {
+    color:white;
+    text-shadow: 2px 2px #000;
+  }
   .calendar {
     margin-top: 5rem;
   }

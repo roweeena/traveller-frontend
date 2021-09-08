@@ -1,19 +1,32 @@
 <template lang="html">
   <div class="trip">
     <div class="text">
-      <h2>Your trip to (insert name)</h2>
-      <p>Dates: </p>
+      <h2>Your trip starts here </h2>
+      Dates: {{trip.trip.start}} - {{trip.trip.end}}
       <p><a href="/directions">Directions</a></p>
-      <p>What to see</p>
-      <p>Your checklist</p>
+      <p><a href="/where-to-visit">What to see</a></p>
+      <p><a href="/checklist">Your checklist</a></p>
       <p><a href="/calculator">Cost Calculator</a></p>
     </div>
   </div>
 </template>
 
 <script>
+import { api } from '../helpers/helpers';
 export default {
+  name: 'show',
+  data (){
+    return {
+        trip:{}
+    }
+  },
+  async mounted(){
+    this.trip = await api.getTrip(this.$route.params.id)
+  }
+
 }
+
+
 </script>
 
 <style lang="css" scoped>

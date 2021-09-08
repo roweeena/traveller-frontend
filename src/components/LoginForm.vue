@@ -38,6 +38,7 @@ methods: {
         console.log(response.data)
         this.$router.push('/');
       } else {
+        console.log(response.data)
         this.$alert("Please enter your email/password again");
       }
     })

@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <h2>Register</h2>
     <form @submit.prevent="create_user">
     <label>
      Name: <input v-model="name" type="text" name="email">
@@ -7,13 +8,15 @@
     <label>
      Email: <input v-model="email" type="text" name="email">
     </label>
+    <br>
     <label>
       Password: <input v-model="password" type="password" name="password">
     </label>
     <label>
       Confirm password: <input v-model="password_confirmation" type="password" name="password_confirmation">
     </label>
-    <button>Login</button>
+    <br>
+    <button>Sign up</button>
     </form>
   </div>
 </template>
@@ -49,4 +52,28 @@ methods: {
 </script>
 
 <style lang="css" scoped>
+.login{
+  color:white;
+  text-shadow: 2px 2px #000;
+  margin-top: 7rem;
+}
+
+button{
+  background-color: rgba(115, 194,251 ,0.7);
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 0.25em;
+  color: white;
+  margin: 10px;
+  border: 1px solid white;
+}
+button:hover{
+  background-color: rgba(115, 194,251 ,1);
+}
+
+button:active {
+  background-color: rgb(115, 194,251);
+  box-shadow: 0 2px #fff;
+  transform: translateY(4px);
+}
 </style>
