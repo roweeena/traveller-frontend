@@ -21,7 +21,7 @@
 <script>
 import axios from 'axios'
 export default {
-  name: 'Login',
+  name: 'SignupForm',
 data() {
   return {
     name: '',
@@ -34,10 +34,11 @@ data() {
 methods: {
   create_user(){
     // const config = {email: this.email, password:this.password}
-    axios.post(`http://localhost:3000/users`,{
+    axios.post(`${process.env.VUE_APP_ROOT_API}/register`,{
       name: this.name,
       email: this.email,
-      password: this.password
+      password: this.password,
+      password_confirmation: this.password_confirmation
     })
     .then(response  => response.status,
     this.$router.push('/'))

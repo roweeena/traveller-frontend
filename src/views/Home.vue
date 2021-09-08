@@ -1,19 +1,19 @@
 <template>
   <div class="home">
     <div class="home_search">
-      <Search />
+      <HomeButtons />
     </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Search from '@/components/Search.vue'
+import HomeButtons from '@/components/HomeButtons.vue'
 
 export default {
   name: 'Home',
   components: {
-    Search
+    HomeButtons
   }
 }
 </script>

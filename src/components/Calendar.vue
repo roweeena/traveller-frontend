@@ -1,6 +1,6 @@
 <template lang="html">
   <form  @submit.prevent>
-    <div >
+    <div class="calendar">
       <h3>Select your dates</h3>
       <v-date-picker
         v-model="range"
@@ -25,7 +25,7 @@
           </div>
         </template>
       </v-date-picker>
-      <button type="button" name="button">Save</button>
+      <button type="button" name="button" @click="saveDates">Save</button>
     </div>
   </form>
 
@@ -34,6 +34,14 @@
 <script>
 export default {
   name: 'Calendar',
+  props: {
+      default(){
+        return {
+          start: '',
+          end:''
+        }
+      }
+    },
   data (){
     return {
       range: {
@@ -44,12 +52,22 @@ export default {
         input: 'YYYY-MM-DD',
       },
     };
+  },
+
+  methods: {
+    saveDates(){
+      this.start = new Date();
+      this.end = new Date();
+      this.$emit('saveDates', this.start, this.end)
+    }
   }
 }
 </script>
 
 <style scoped>
-  
+  .calendar {
+    margin-top: 5rem;
+  }
   .to-and-from {
     margin: 2rem;
   }
@@ -69,7 +87,7 @@ export default {
     border-radius: 0.25em;
     color: white;
     border: 1px solid white;
-    margin: 5rem;
+    margin-top: 10em;
   }
 
   button:hover{

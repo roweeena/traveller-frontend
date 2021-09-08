@@ -1,41 +1,58 @@
 <template>
-  <div class="map">
-    <h3>How to get there</h3>
+  <div class="top">
+    <h3>How do we get there?</h3>
     <label>
         <gmap-autocomplete
-          @place_changed="setPlace">
-        </gmap-autocomplete>
-        <button @click="addMarker">Add</button>
+          @place_changed="setPlace" value="Sydney"/>
+        <button @click="addMarker(0)">Add</button>
       </label>
-      <br>
+    <label>
+        <gmap-autocomplete
+          @place_changed="setPlace" value="Hunter Valley" />
+        <button @click="addMarker(1)">Add</button>
+      </label>
+      <div class="map">
+      <br />
+      <br />
+      <div class="map-render">
     <gmap-map
       :zoom="14"
       :center="center"
-      style="width: 100%; height: 600px;"
+      style="width:100%; height: 400px; margin: 10px"
       >
-      <gmap-marker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
-        @click = "center=m.position"
-        >
-      </gmap-marker>
+      <DirectionsRenderer
+        travelMode="DRIVING"
+        :origin="startLocation"
+        :destination="endLocation"
+        v-on:steps="setSteps"
+      />
   </gmap-map>
   </div>
+  <br>
+  <div class="instructions">
+    <p v-for="step in steps" v-bind:key="step" v-html="step.instructions">
+    </p>
+  </div>
+  </div>
+    </div>
 </template>
 
 <script>
+import DirectionsRenderer from "@/components/DirectionsRenderer";
 export default {
   name: "GoogleMap",
+    components: {
+      DirectionsRenderer
+    },
   data(){
     return {
-      center:{
-        lat: 151.2093,
-        lng: 33.8688
-      },
+      center: { lat: 45.508, lng: -73.587 },
+      currentPlace: null,
       markers: [],
       places: [],
-      currentPlace: null
+      startLocation: null,
+      endLocation: null,
+      steps:[]
 
     };
   },
@@ -44,20 +61,20 @@ export default {
     this.geolocate();
   },
   methods: {
-    setPlace(place){
+    setPlace(place) {
       this.currentPlace = place;
     },
-    addMarker(){
-      if(this.currentPlace){
-        const marker= {
-          lat: this.currentPlace.geometry.location.lat(),
-          lng: this.currentPlace.geometry.location.lng()
-        };
-        this.markers.push({ position: marker });
-        this.places.push(this.currentPlace);
-        this.center = marker;
-        this.currentPlace = null;
-      }
+    setSteps(steps){
+      this.steps=steps;
+    },
+    addMarker(index) {
+      const marker = {
+        lat: this.currentPlace.geometry.location.lat(),
+        lng: this.currentPlace.geometry.location.lng(),
+      };
+      if (index === 0) this.startLocation = marker;
+      if (index === 1) this.endLocation = marker;
+      this.center = marker;
     },
     geolocate: function(){
       navigator.geolocation.getCurrentPosition(position => {
@@ -72,4 +89,42 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.top{
+  margin-top: 5rem;
+}
+.map {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.map-render{
+  flex: 2;
+  margin: 12px;
+}
+
+.instructions{
+  text-align: left;
+  margin: 12px;
+}
+p {
+  margin:0;
+}
+button{
+  background-color: rgba(115, 194,251 ,0.7);
+  width: 5rem;
+  height: 2rem;
+  border-radius: 0.25em;
+  color: white;
+  margin: 10px;
+  border: 1px solid white;
+}
+button:hover{
+  background-color: rgba(115, 194,251 ,1);
+}
+
+button:active {
+  background-color: rgb(115, 194,251);
+  box-shadow: 0 2px #fff;
+  transform: translateY(4px);
+}
 </style>

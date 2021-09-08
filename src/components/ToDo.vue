@@ -1,9 +1,7 @@
 <template>
-  <div>
-
+  <div class="checklist">
     <h3>Your checklist</h3>
     <div>
-
       <section>
          <div >
            <input v-model="inputField" v-on:keyup.enter="addTodo" placeholder="Pack a toothbrush" />
@@ -72,6 +70,14 @@ export default {
 </script>
 
 <style scoped>
+.checklist {
+  color:white;
+  margin-top: 7rem;
+}
+
+h3{
+  text-shadow: 2px 2px #000;
+}
   input{
     height: 2rem;
   }

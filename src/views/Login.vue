@@ -1,6 +1,5 @@
 <template lang="html">
   <div class="login">
-  <h2>Login</h2>
   <LoginForm />
   </div>
 </template>
@@ -17,4 +16,18 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.login{
+  margin: 0 auto;
+  padding: 10px;
+  width: 95vw;
+  height: 100vh;
+  background: url('../assets/homepage.jpg')
+  no-repeat center center
+  fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+position: relative;
+}
 </style>

@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
 import Locator from '../views/Locator.vue'
 import Checklist from '../views/Checklist.vue'
 import Datepicker from '../views/Datepicker.vue'
 import Visit from '../views/Visit.vue'
 import Show from '../views/Show.vue'
-import Signup from '../views/Signup.vue'
+import Expenses from '../views/Expenses.vue'
 
 Vue.use(VueRouter)
 
@@ -28,7 +27,8 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: () => import(/* webpackChunkName: "about" */
+   '../views/Login.vue')
   },
   {
     path: '/directions',
@@ -39,6 +39,11 @@ const routes = [
     path: '/checklist',
     name: 'Checklist',
     component: Checklist
+  },
+  {
+    path: '/calculator',
+    name: 'Expenses',
+    component: Expenses
   },
   {
     path: '/pick-dates-calendar',
@@ -58,7 +63,8 @@ const routes = [
   {
     path: '/register',
     name: 'Signup',
-    component: Signup
+    component: () => import(/* webpackChunkName: "about" */
+ '../views/Signup.vue')
   }
 
 ]

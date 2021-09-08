@@ -1,5 +1,7 @@
 <template lang="html">
-  <ToDo/>
+  <div class="todo">
+    <ToDo/>
+  </div>
 </template>
 
 <script>
@@ -13,4 +15,18 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.todo{
+  margin: 0 auto;
+  padding: 10px;
+  width: 95vw;
+  height: 100vh;
+  background: url('../assets/homepage.jpg')
+  no-repeat center center
+  fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+position: relative;
+}
 </style>
