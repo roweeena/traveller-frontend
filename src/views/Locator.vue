@@ -21,7 +21,7 @@ export default {
   margin: 0 auto;
   padding: 10px;
   width: 95vw;
-  height: 100vh;
+  height: 100%;
   background: url('../assets/homepage.jpg')
   no-repeat center center
   fixed;

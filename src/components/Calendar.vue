@@ -63,7 +63,7 @@ export default {
         location: this.location})
        .then(response => {
          console.log(response.data)
-         this.$router.push('/checklist')
+         this.$router.push(`/trip/` + response.data.id)
        })
       // this.$router.push('/trip')
       .catch(error => console.log(error))
@@ -96,8 +96,7 @@ export default {
     display:inline-flex;
   }
   .calendar_input{
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 0.5rem;
   }
 
   .class__title{
@@ -118,7 +117,7 @@ export default {
 
   button{
     background-color: rgba(255,0,0 ,0.6);
-    width: 100%;
+    width: 50%;
     height: 2.5rem;
     border-radius: 0.25em;
     color: white;
