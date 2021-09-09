@@ -3,12 +3,12 @@
     <h3>How do we get there?</h3>
     <label>
         <gmap-autocomplete
-          @place_changed="setPlace" value="Sydney"/>
+          @place_changed="setPlace" placeholder="From"/>
         <button @click="addMarker(0)">Add</button>
       </label>
     <label>
         <gmap-autocomplete
-          @place_changed="setPlace" value="Hunter Valley" />
+          @place_changed="setPlace" placeholder="To" />
         <button @click="addMarker(1)">Add</button>
       </label>
       <div class="map">

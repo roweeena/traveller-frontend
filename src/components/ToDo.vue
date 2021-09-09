@@ -64,10 +64,12 @@ export default {
    },
    saveChecklist: function(){
      axios.post(`${process.env.VUE_APP_ROOT_API}/checklists`, {
-       todoList: this.todoList
+       todoList: this.todoList,
+       uid: localStorage.getItem('uid')
      })
      .then(response => {
        console.log(response.data.checklist)
+       this.$router.push(`/trip/`+response.data.id)
      })
    .catch(error=> console.log(error));
   }

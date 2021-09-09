@@ -11,8 +11,13 @@ fn(...params).catch((error) => {
 export const api = {
   getTrip: handleError(async (id) => {
     const res = await axios.get(`${process.env.VUE_APP_ROOT_API}/trips/` + id);
+    console.log(res.data)
     return res.data;
-  })
+  }),
+  getChecklist: handleError(async (id) => {
+    const res = await axios.get(`${process.env.VUE_APP_ROOT_API}/checklists/` + id);
+    return res.data;
+  }),
 
 
 };

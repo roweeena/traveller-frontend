@@ -43,9 +43,12 @@ methods: {
       password: this.password,
       password_confirmation: this.password_confirmation
     })
-    .then(response  => response.status,
-    this.$router.push('/'))
-    .catch(error => console.log(error));
+    .then(response  => {
+      console.log(response)
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("uid", response.data.uid);
+    this.$router.push('/');
+  }).catch(error => console.log(error));
   }
  }
 }
