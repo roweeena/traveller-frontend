@@ -46,9 +46,11 @@ position: relative;
 .map{
   flex: 2;
   margin: 12px;
+  width: 50%;
 }
 
 .list{
+  width: 50%;
   text-align: left;
   margin: 12px;
 }

@@ -1,9 +1,9 @@
 <template>
   <div class="checklist">
-    <h3> Wishlist</h3>
+    <h3> List of places to see </h3>
     <div>
       <section>
-         <div >
+         <div class="wishlist_input">
            <input v-model="inputField" v-on:keyup.enter="addTodo" placeholder="Restaurant" />
            <button @click="addTodo">Add</button>
         </div>
@@ -115,7 +115,7 @@ p{
 
 .save-button{
   justify-content: center;
-  margin-left: 30%;
+  margin-left: 40%;
   background-color: rgba(255,0,0 ,0.6)
 }
 
@@ -127,6 +127,10 @@ p{
   background-color: rgb(255,0,0);
   box-shadow: 0 2px #fff;
   transform: translateY(4px);
+}
+
+.wishlist_input{
+margin-left: 25%;
 }
 
 </style>

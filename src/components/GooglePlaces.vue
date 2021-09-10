@@ -5,10 +5,8 @@
       <GmapAutocomplete
         @place_changed='setPlace'
       />
-      <button
-        @click='addMarker'
-      >
-        Add
+      <button @click='addMarker'>
+        Search
       </button>
     </div>
     <br>
@@ -92,4 +90,5 @@ button:active {
   box-shadow: 0 2px #fff;
   transform: translateY(4px);
 }
+
 </style>

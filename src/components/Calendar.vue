@@ -14,17 +14,20 @@
           >
             <template v-slot="{ inputValue, inputEvents, isDragging }">
                 <div class="calendar_picker">
-
-                <p>From:</p>  <input
-                    :class="isDragging ? 'text-gray-600' : 'text-gray-900' " class="calendar_input"
+                <label>
+                From: <input
+                    :class="isDragging ? 'text-gray-600' : 'text-gray-900' "
                     :value="inputValue.start"
                     v-on="inputEvents.start"
                   />
-                  <p>To:</p> <input
-                    :class="isDragging ? 'text-gray-600' : 'text-gray-900'" class="calendar_input"
+                  </label>
+                  <label>
+                  To: <input
+                    :class="isDragging ? 'text-gray-600' : 'text-gray-900'"
                     :value="inputValue.end"
                     v-on="inputEvents.end"
                   />
+                  </label>
                   </div>
                 </template>
               </v-date-picker>
@@ -95,9 +98,7 @@ export default {
   .calendar_picker{
     display:inline-flex;
   }
-  .calendar_input{
-    padding: 0.5rem;
-  }
+
 
   .class__title{
     margin:2rem;
@@ -117,7 +118,7 @@ export default {
 
   button{
     background-color: rgba(255,0,0 ,0.6);
-    width: 50%;
+    width: 25%;
     height: 2.5rem;
     border-radius: 0.25em;
     color: white;
@@ -135,5 +136,9 @@ export default {
     transform: translateY(4px);
   }
 
+label{
+  color:white;
+  padding:10px;
+}
 
 </style>
