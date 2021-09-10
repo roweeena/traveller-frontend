@@ -15,24 +15,25 @@
       <br />
       <br />
       <div class="map-render">
-    <gmap-map
-      :zoom="14"
-      :center="center"
-      style="width:100%; height: 400px; margin: 10px"
-      >
-      <DirectionsRenderer
-        travelMode="DRIVING"
-        :origin="startLocation"
-        :destination="endLocation"
-        v-on:steps="setSteps"
-      />
-  </gmap-map>
-  </div>
-  <br>
-  <div class="instructions">
-    <p v-for="step in steps" v-bind:key="step" v-html="step.instructions">
-    </p>
-  </div>
+        <gmap-map
+          :zoom="14"
+          :center="center"
+          style="width:100%; height: 400px; margin: 10px"
+          >
+          <DirectionsRenderer
+            travelMode="DRIVING"
+            :origin="startLocation"
+            :destination="endLocation"
+            v-on:steps="setSteps"
+          />
+      </gmap-map>
+      </div>
+        <br>
+      <div class="instructions">
+        <h4>Directions</h4>
+        <p v-for="step in steps" :key="step" v-html="step.instructions">
+        </p>
+      </div>
   </div>
     </div>
 </template>
@@ -89,8 +90,13 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 .top{
   margin-top: 5rem;
+}
+h3, h4, p {
+  color:white;
+  text-shadow: 2px 2px #000;
 }
 .map {
   display:flex;

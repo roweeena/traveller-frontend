@@ -1,16 +1,19 @@
 <template lang="html">
   <div class="login">
-    <h2>Login</h2>
-  <form @submit.prevent="login">
-  <label>
-   Email: <input v-model="email" type="text" name="email">
-  </label>
-  <label>
-    Password: <input v-model="password" type="password" name="password">
-  </label>
-  <br>
-  <button>Login</button>
-  </form>
+    <div class="login_wrapper">
+      <h2>Login</h2>
+    <form @submit.prevent="login">
+    <label>
+     Email: <input v-model="email" type="text" name="email">
+    </label>
+    <label>
+      Password: <input v-model="password" type="password" name="password">
+    </label>
+    <br>
+    <button>Login</button>
+    </form>
+    </div>
+
   </div>
 </template>
 
@@ -54,6 +57,8 @@ export default {
 
 <style lang="css" scoped>
 .login{
+  color: white;
+  text-shadow: 2px 2px #000;
   margin: 0 auto;
   padding: 10px;
   width: 95vw;
@@ -66,6 +71,10 @@ export default {
 -o-background-size: cover;
 background-size: cover;
 position: relative;
+}
+
+.login_wrapper {
+  margin-top: 40vh;
 }
 
 button{
@@ -85,5 +94,9 @@ button:active {
   background-color: rgb(115, 194,251);
   box-shadow: 0 2px #fff;
   transform: translateY(4px);
+}
+
+label {
+  padding: 10px;
 }
 </style>

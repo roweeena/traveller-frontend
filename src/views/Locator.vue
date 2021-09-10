@@ -16,8 +16,7 @@ export default {
 
 <style lang="css" scoped>
 .locate{
-  color:white;
-  text-shadow: 2px 2px #000;
+
   margin: 0 auto;
   padding: 10px;
   width: 95vw;

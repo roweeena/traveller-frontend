@@ -79,4 +79,8 @@ button:active {
   box-shadow: 0 2px #fff;
   transform: translateY(4px);
 }
+
+label {
+  padding: 10px;
+}
 </style>
